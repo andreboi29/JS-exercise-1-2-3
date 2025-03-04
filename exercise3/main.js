@@ -1,19 +1,35 @@
-const elementTxt = document.getElementById("elements");
-const sumTxt = document.getElementById("sum");
 
-let arr = [];
-let sum = 0;
+        let numbers = [];
 
-arr.push(23);
-arr.push(55);
-arr.push(10);
-arr.push(90);
-arr.push(18);
+        function insertNumber() {
+            let input = document.getElementById("numberInput").value;
+            let num = parseInt(input);
 
-for(let i=0; i<arr.length; i++ ) {
-    sum += arr[i];
-}
+            if (!isNaN(num)) {
+                numbers.push(num);
+                updateDisplay();
+            }
+            document.getElementById("numberInput").value = "";
+        }
 
-elementTxt.innerHTML = arr.join("<br>");
-sumTxt.innerHTML = sum;
-console.log(arr);
+        function deleteAll() {
+            numbers = [];
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            let numberList = document.getElementById("numberList");
+            numberList.innerHTML = numbers.join(", ");
+
+            let sum = numbers.reduce((a, b) => a + b, 0);
+            let highest = numbers.length > 0 ? Math.max(...numbers) : 0;
+            let lowest = numbers.length > 0 ? Math.min(...numbers) : 0;
+
+            document.getElementById("sum").innerText = sum;
+            document.getElementById("highest").innerText = highest;
+            document.getElementById("lowest").innerText = lowest;
+        }
+    </script>
+
+</body>
+</html>
