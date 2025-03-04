@@ -29,6 +29,6 @@
             document.getElementById("highest").innerText = highest;
             document.getElementById("lowest").innerText = lowest;
 
-                <script src="main.js"></script>
+               
         }
     
